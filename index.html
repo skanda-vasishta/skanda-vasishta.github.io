@@ -3,49 +3,144 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Skanda's CS291A Site</title>
+  <title>Skanda Vasishta</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <h1>Skanda's CS291A Site</h1>
-    <p class="tagline">My webpage for CS291A - Scalable Internet Services</p>
-  </header>
-
   <main>
-    <section>
-      <h2>About Me</h2>
-      <div class="bio">
-        <img src="headshot.jpeg" alt="Placeholder portrait illustration">
-        <p>I'm Skanda, and I'm a 4th year CS major at UCSB graduating in December 2026 and subsequently pursuing an MS in CS, also at UCSB, starting in January 2026. I have software engineering/development internship experience, and am particularly interested in the AI/ML space. I have also researched at the systems level (computer architecture), and am currently involved with LLM research.</p>
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">☀</button>
+    <header class="hero">
+      <img src="headshot.jpeg" alt="Skanda Vasishta">
+      <div class="hero-text">
+        <h1>Skanda Vasishta</h1>
+        <p class="subtitle">CS @ UCSB</p>
+        <p class="email"><a href="mailto:skandavasishta@ucsb.edu">skandavasishta@ucsb.edu</a></p>
       </div>
-      <p>
-        Find the project source on
-        <a href="https://github.com/skanda-vasishta/291a">GitHub</a>.
-      </p>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>4th year Computer Science student at UC Santa Barbara, pursuing an MS in CS starting January 2026. Interested in AI/ML, software development, and sports analytics.</p>
     </section>
 
-    <section>
-      <h2>Things I'm Good At</h2>
-      <div id="expert-topics">
-        <ul>
-          <li>Full-Stack Software Development</li>
-          <li>Machine Learning</li>
-          <li> Biking with No Hands</li>
-           <li>  <a href="/interest/sports.html">Sports Page</a></li>
+    <section class="tabs-section">
+      <div class="tabs">
+        <button class="tab-button active" data-tab="experience">Experience</button>
+        <button class="tab-button" data-tab="projects">Projects</button>
+        <button class="tab-button" data-tab="leadership">Leadership</button>
+        <button class="tab-button" data-tab="interests">Interests</button>
+      </div>
+
+      <div id="experience" class="tab-content active">
+        <ul class="experience-list">
+          <li>
+            <span class="role">AI Agent Engineering Intern</span>
+            <span class="company">ChipAgents AI</span>
+          </li>
+          <li>
+            <span class="role">Software Engineering Intern</span>
+            <span class="company">Pacific Life</span>
+          </li>
+          <li>
+            <span class="role">Artificial Intelligence Researcher</span>
+            <span class="company">UCSB NLP Group</span>
+          </li>
+          <li>
+            <span class="role">Software Development Intern</span>
+            <span class="company">NOAA Channel Islands</span>
+          </li>
+          <li>
+            <span class="role">Undergraduate Researcher</span>
+            <span class="company">UCSB ArchLab</span>
+          </li>
         </ul>
       </div>
+
+      <div id="projects" class="tab-content">
+        <ul class="project-list">
+          <li>
+            <a href="https://sbhacks26.vercel.app/">StudyStack</a>
+            <span class="desc">AI tool that consolidates popular learning platforms</span>
+          </li>
+          <li>
+            <a href="https://ff-copilot.vercel.app/">Fantasy Football Copilot</a>
+            <span class="desc">Full-stack fantasy football analysis platform</span>
+          </li>
+          <li>
+            <span class="project-name">KOS</span>
+            <span class="desc">Linux-like operating system</span>
+          </li>
+          <li>
+            <a href="https://github.com/skanda-vasishta/gm-agents">GM-Agents</a>
+            <span class="desc">Multi-agent system for strategy-based game automation</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="leadership" class="tab-content">
+        <ul class="experience-list">
+          <li>
+            <span class="role">Co-Founder, Co-President</span>
+            <span class="company">Gaucho Sports Analytics Club</span>
+          </li>
+          <li>
+            <span class="role">Candidate</span>
+            <span class="company">The Leukemia & Lymphoma Society</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="interests" class="tab-content">
+        <div class="interests-content">
+          <p>Fan of the Sacramento Kings, Seattle Seahawks, Indian Cricket Team, Royal Challengers Bangalore, Tottenham Hotspur.</p>
+          <p>I listen to a lot of <a href="https://open.spotify.com/user/q2l6kd1zf9iloi64qv4om0ehw?si=deffba8bd81446ea">music</a>.</p>
+          <p>My favorite TV shows are The Office, The Sopranos, and Game of Thrones.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- <section>
-      <h2>Interests</h2>
-      <p><a href="interest/sports.html">Sports Page</a></p>
-    </section> -->
+    <section class="links">
+      <a href="https://github.com/skanda-vasishta">GitHub</a>
+      <a href="https://www.linkedin.com/in/skandavasishta">LinkedIn</a>
+      <a href="https://open.spotify.com/user/q2l6kd1zf9iloi64qv4om0ehw?si=deffba8bd81446ea">Spotify</a>
+    </section>
   </main>
 
-  <!-- <footer class="site-footer">
-    <p>&copy; 20XX Student Name. Placeholder footer text.</p>
-  </footer> -->
-
+  <script>
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Check for saved preference or system preference
+    const currentTheme = localStorage.getItem('theme') || 
+      (prefersDark.matches ? 'dark' : 'light');
+    
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      darkModeToggle.textContent = '☾';
+    }
+    
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      darkModeToggle.textContent = isDark ? '☾' : '☀';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    
+    // Tab functionality
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const tabName = button.getAttribute('data-tab');
+        
+        // Remove active class from all buttons and content
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding content
+        button.classList.add('active');
+        document.getElementById(tabName).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
